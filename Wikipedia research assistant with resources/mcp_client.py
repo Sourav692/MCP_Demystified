@@ -27,7 +27,7 @@ class State(TypedDict):
 
 async def create_graph(session):
     tools = await load_mcp_tools(session)
-    llm = ChatOpenAI(model="gpt-4", temperature=0, openai_api_key="sk")
+    llm = ChatOpenAI(model="gpt-4", temperature=0)
     llm_with_tools = llm.bind_tools(tools)
 
     prompt_template = ChatPromptTemplate.from_messages([
